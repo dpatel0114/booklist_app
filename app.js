@@ -65,16 +65,16 @@ UI.prototype.clearFields = function(){
 // Event Listner for add Book
 document.getElementById('book-form').addEventListener('submit', function (e){
 
-    // Get from values 
-    const title = document.getElementById('title').value,
-          author = document.getElementById('author').value,
-          isbn = document.getElementById('isbn').value
+  // Get from values 
+  const title = document.getElementById('title').value,
+        author = document.getElementById('author').value,
+        isbn = document.getElementById('isbn').value
 
-    // Instantiate Book 
-    const book = new Book(title, author, isbn)
-  
-    // Instantiate UI
-    const ui = new UI()
+  // Instantiate Book 
+  const book = new Book(title, author, isbn)
+
+  // Instantiate UI
+  const ui = new UI()
 
 // Validate 
 if(title === '' || author === '' || isbn === ""){
@@ -97,12 +97,12 @@ e.preventDefault()
 // Event listener for delete
 document.getElementById('book-list').addEventListener('click', function(e){
 
-   // Instantiate UI
-   const ui = new UI()
+  // Instantiate UI
+  const ui = new UI()
 
-   ui.deleteBook(e.target)
+  ui.deleteBook(e.target)
 
-   // show message
-   ui.showAlert('Book Removed!', 'sucess')
+  // show message
+  ui.showAlert('Book Removed!', 'sucess')
 
 })

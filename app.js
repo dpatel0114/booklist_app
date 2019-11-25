@@ -55,7 +55,7 @@ UI.prototype.clearFields = function(){
 }
 
 
-// Event Listner 
+// Event Listner for add Book
 document.getElementById('book-form').addEventListener('submit', function (e){
 
     // Get from values 
@@ -85,4 +85,9 @@ if(title === '' || author === '' || isbn === ""){
 }
 
 e.preventDefault()    
+})
+
+// Event listener for delete
+document.getElementById('book-list').addEventListener('click', function(e){
+  
 })

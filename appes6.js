@@ -87,3 +87,19 @@ if(title === '' || author === '' || isbn === ""){
 
 e.preventDefault()    
 })
+
+// Event listener for delete
+document.getElementById('book-list').addEventListener('click', function(e){
+
+  // Instantiate UI
+  const ui = new UI()
+
+  // delete book
+  ui.deleteBook(e.target)
+
+  // show message
+  ui.showAlert('Book Removed!', 'sucess')
+
+  e.preventDefault()
+
+})

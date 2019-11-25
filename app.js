@@ -72,7 +72,7 @@ document.getElementById('book-form').addEventListener('submit', function (e){
 
     // Instantiate Book 
     const book = new Book(title, author, isbn)
-
+  
     // Instantiate UI
     const ui = new UI()
 

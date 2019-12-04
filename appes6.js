@@ -53,6 +53,7 @@ class UI {
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
     document.getElementById('isbn').value = ''
+    // e.preventDefault()
   }
 }
 
@@ -72,6 +73,7 @@ document.getElementById('book-form').addEventListener('submit', function (e){
 
 // Validate 
 if(title === '' || author === '' || isbn === ""){
+  
 
   // Error Alert
   ui.showAlert('Please fill in filds', 'error')    
@@ -80,12 +82,12 @@ if(title === '' || author === '' || isbn === ""){
   ui.addBookToList(book)
 
   ui.showAlert('Book Added!', 'sucess')
-
+  
   //Clear fields
   ui.clearFields()
+  // e.preventDefault()
 }
-
-   
+  
 })
 
 // Event listener for delete
@@ -101,6 +103,6 @@ document.getElementById('book-list').addEventListener('click', function(e){
   // show message
   ui.showAlert('Book Removed!', 'sucess')
 
-  
+  // e.preventDefault()
 
 })

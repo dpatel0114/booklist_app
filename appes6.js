@@ -58,7 +58,7 @@ class UI {
 
 // Event Listner for add Book
 document.getElementById('book-form').addEventListener('submit', function (e){
-
+  e.preventDefault()  
   // Get from values 
   const title = document.getElementById('title').value,
         author = document.getElementById('author').value,
@@ -85,12 +85,13 @@ if(title === '' || author === '' || isbn === ""){
   ui.clearFields()
 }
 
-e.preventDefault()    
+   
 })
 
 // Event listener for delete
 document.getElementById('book-list').addEventListener('click', function(e){
 
+  e.preventDefault()
   // Instantiate UI
   const ui = new UI()
 
@@ -100,6 +101,6 @@ document.getElementById('book-list').addEventListener('click', function(e){
   // show message
   ui.showAlert('Book Removed!', 'sucess')
 
-  e.preventDefault()
+  
 
 })

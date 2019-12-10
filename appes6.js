@@ -40,7 +40,6 @@ class UI {
     setTimeout(function(){
       document.querySelector('.alert').remove();
     },3000)
-
   }
 
   deleteBook(target){
@@ -53,13 +52,12 @@ class UI {
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
     document.getElementById('isbn').value = ''
-    // e.preventDefault()
   }
 }
 
 // Event Listner for add Book
-document.getElementById('book-form').addEventListener('submit', function (e){
-  e.preventDefault()  
+document.getElementById('book-form').addEventListener('submit', function(e){
+  // e.preventDefault();
   // Get from values 
   const title = document.getElementById('title').value,
         author = document.getElementById('author').value,
@@ -72,20 +70,18 @@ document.getElementById('book-form').addEventListener('submit', function (e){
   const ui = new UI()
 
 // Validate 
-if(title === '' || author === '' || isbn === ""){
-  
+if(title === '' || author === '' || isbn === ''){
 
   // Error Alert
   ui.showAlert('Please fill in filds', 'error')    
 }else{
   //Add book to list 
-  ui.addBookToList(book)
+  ui.addBookToList(book);
 
-  ui.showAlert('Book Added!', 'sucess')
+  ui.showAlert('Book Added!', 'sucess');
   
   //Clear fields
-  ui.clearFields()
-  // e.preventDefault()
+  ui.clearFields();
 }
   
 })
@@ -93,7 +89,7 @@ if(title === '' || author === '' || isbn === ""){
 // Event listener for delete
 document.getElementById('book-list').addEventListener('click', function(e){
 
-  e.preventDefault()
+  // e.preventDefault()
   // Instantiate UI
   const ui = new UI()
 
@@ -103,6 +99,6 @@ document.getElementById('book-list').addEventListener('click', function(e){
   // show message
   ui.showAlert('Book Removed!', 'sucess')
 
-  // e.preventDefault()
+  e.preventDefault();
 
 })

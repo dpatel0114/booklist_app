@@ -63,7 +63,7 @@ UI.prototype.clearFields = function(){
 
 
 // Event Listner for add Book
-document.getElementById('book-form').addEventListener('submit', function (e){
+document.getElementById('book-form').addEventListener('submit', function(e){
 
   // Get from values 
   const title = document.getElementById('title').value,
@@ -90,8 +90,7 @@ if(title === '' || author === '' || isbn === ""){
   //Clear fields
   ui.clearFields()
 }
-
-e.preventDefault()    
+ e.preventDefault();   
 })
 
 // Event listener for delete
@@ -106,5 +105,5 @@ document.getElementById('book-list').addEventListener('click', function(e){
   // show message
   ui.showAlert('Book Removed!', 'sucess')
 
-  e.preventDefault()
+  e.preventDefault();
 })

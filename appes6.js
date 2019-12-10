@@ -58,7 +58,7 @@ class UI {
 // Local storage Class
 class Store{
 
-  static getBook(){
+  static getBooks(){
     let books;
 
     if(localStorage.getItem('books') === null){
@@ -70,27 +70,44 @@ class Store{
   }
 
 
-  static displayBook(){
+  static displayBooks(){
+    const books = Store.getBooks();
 
+    books.forEach(function(book){
+      const ui = new UI
+
+      //add book to UI
+      ui.addBookToList(book)
+    })
 
   }
 
-  static addBook(){
+  static addBook(book){
+    const books = Store.getBooks()
 
+    books.push(book)
+    localStorage.setItem('books', JSON.stringify(books))
 
   }
 
-  static removeBook(){
+  static removeBook(isbn){
+    const books  = Store.getBooks();
 
-
+    books.forEach(function(book, index){
+      if(book.isbn === isbn){
+        books.splice(index, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(books));
   }
 }
 
-
+// DOM load Event;
+document.addEventListener('DOMContentLoaded', Store.displayBooks);
 
 // Event Listner for add Book
 document.getElementById('book-form').addEventListener('submit', function(e){
-  // e.preventDefault();
+  e.preventDefault();
   // Get from values 
   const title = document.getElementById('title').value,
         author = document.getElementById('author').value,
@@ -119,18 +136,21 @@ if(title === '' || author === '' || isbn === ''){
   //Clear fields
   ui.clearFields();
 }
- e.preventDefault();
+//  e.preventDefault();
 })
 
 // Event listener for delete
 document.getElementById('book-list').addEventListener('click', function(e){
 
-  // e.preventDefault()
+  e.preventDefault()
   // Instantiate UI
   const ui = new UI()
 
   // delete book
   ui.deleteBook(e.target)
+
+  // Remove from Ls
+  Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
   // show message
   ui.showAlert('Book Removed!', 'sucess')

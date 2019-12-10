@@ -55,6 +55,39 @@ class UI {
   }
 }
 
+// Local storage Class
+class Store{
+
+  static getBook(){
+    let books;
+
+    if(localStorage.getItem('books') === null){
+      books = [];
+    }else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books
+  }
+
+
+  static displayBook(){
+
+
+  }
+
+  static addBook(){
+
+
+  }
+
+  static removeBook(){
+
+
+  }
+}
+
+
+
 // Event Listner for add Book
 document.getElementById('book-form').addEventListener('submit', function(e){
   // e.preventDefault();
@@ -78,12 +111,15 @@ if(title === '' || author === '' || isbn === ''){
   //Add book to list 
   ui.addBookToList(book);
 
+  // Add to LS
+  Store.addBook(book)
+
   ui.showAlert('Book Added!', 'sucess');
   
   //Clear fields
   ui.clearFields();
 }
-  
+ e.preventDefault();
 })
 
 // Event listener for delete

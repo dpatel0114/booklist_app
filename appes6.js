@@ -91,11 +91,12 @@ class Store{
   }
 
   static removeBook(isbn){
+    // getting specific isbn from all element 
     const books  = Store.getBooks();
 
     books.forEach(function(book, index){
       if(book.isbn === isbn){
-        books.splice(index, 1);
+        book.splice(index, 1);
       }
     });
     localStorage.setItem('books', JSON.stringify(books));

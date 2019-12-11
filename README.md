@@ -5,6 +5,8 @@
 - You can Delete Book as well, if you do not need it any more from your library. 
 - When you add a book, you can get the messge on the top of the app that you added a book succcessfully. 
 - When you delete book, you can get the message on the top of the app that you deleted a book successfully. 
+- You can store all Books in Local Storage. 
+_ You can persist you data as well. 
 
 # USE
 - Only Vanilla Javascript with custome CSS and some styling within the javascript. 

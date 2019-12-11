@@ -78,16 +78,14 @@ class Store{
 
       //add book to UI
       ui.addBookToList(book)
-    })
-
+    });
   }
 
   static addBook(book){
     const books = Store.getBooks()
 
     books.push(book)
-    localStorage.setItem('books', JSON.stringify(books))
-
+    localStorage.setItem('books', JSON.stringify(books));
   }
 
   static removeBook(isbn){
@@ -96,7 +94,7 @@ class Store{
 
     books.forEach(function(book, index){
       if(book.isbn === isbn){
-        book.splice(index, 1);
+        books.splice(index, 1);
       }
     });
     localStorage.setItem('books', JSON.stringify(books));
@@ -137,7 +135,7 @@ if(title === '' || author === '' || isbn === ''){
   //Clear fields
   ui.clearFields();
 }
-//  e.preventDefault();
+ e.preventDefault();
 })
 
 // Event listener for delete
